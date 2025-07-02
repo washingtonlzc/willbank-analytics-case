@@ -6,7 +6,7 @@
 
 - [Objetivo do Case](#objetivo-do-case)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Arquitetura do Pipeline](#arquitetura-da-informacao)
+- [Arquitetura do Pipeline](#arquitetura-da-pipeline)
 - [Como Executar o Projeto](#como-executar-o-projeto)
 - [Principais Métricas e KPIs](#principais-métricas-kpis)
 - [Exemplo de Análise Exploratória](#exemplo-de-analise-exploratoria)
