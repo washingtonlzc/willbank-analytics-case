@@ -9,6 +9,7 @@
 - [Arquitetura do Pipeline](#arquitetura-da-pipeline)
 - [Como Executar o Projeto](#como-executar-o-projeto)
 - [Principais Métricas e KPIs](#principais-métricas-kpis)
+- [Exemplo de Análise Exploratória (EDA)](#exemplo-de-análise-exploratória-eda)
 - [Exemplo de Análise Exploratória](#exemplo-de-analise-exploratoria)
 - [Plano de Integração de Dados Externos (NPS)](#plano-de-integracao-de-dados-externos-nps)
 - [Sugestões de Governança e Melhoria](#sugestões-tecnicas-e-de-governança)
@@ -256,7 +257,22 @@ Após a detecção de inconsistências entre as camadas Core Account e Core PIX,
 
 Esses insights permitem à equipe técnica priorizar esforços e prever janelas de maior risco, reforçando a robustez do pipeline implementado.
 
+## Exemplo de Análise Exploratória (EDA)
 
+Antes do desenvolvimento completo do pipeline, foi realizada uma análise exploratória dos dados (EDA) para identificar padrões, avaliar a qualidade e levantar possíveis inconsistências.  
+O notebook completo da EDA, com gráficos e insights, pode ser consultado em [`scripts/eda_willbank.ipynb`](scripts/eda_willbank.ipynb).
+
+### Exemplo de insight visual:
+![Exemplo de gráfico temporal de transações](deliverables/output/falhas_por_dia.png)
+
+> *Exemplo:* O gráfico acima mostra que as falhas de PIX se concentram principalmente em determinados dias da semana, o que pode indicar gargalos operacionais e orientar o reforço de monitoramento em datas críticas.
+
+Outros exemplos de insights extraídos:
+- Evolução diária do volume de transações PIX
+- Distribuição de valores de transação (identificação de outliers)
+- Perfil geográfico e etário dos clientes
+
+*Para detalhes completos da análise exploratória, consulte o notebook na pasta `/scripts/`.*
 
 
 ## KPIs e Propostas Estratégicas
