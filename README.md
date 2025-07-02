@@ -1,3 +1,7 @@
+# Will Bank – Case Técnico: Senior Analytics Engineer
+
+**Autor:** Washington (Kim)
+
 ## Sumário
 
 - [Objetivo do Case](#objetivo-do-case)
@@ -10,10 +14,6 @@
 - [Sugestões de Governança e Melhoria](#sugestões-tecnicas-e-de-governança)
 - [Status do Projeto](#status-do-projeto)
 - [Referências](#referências)
-
-# Will Bank – Case Técnico: Senior Analytics Engineer
-
-**Autor:** Washington (Kim)
 
 ---
 
