@@ -23,19 +23,19 @@ O repositório está organizado de forma a garantir a rastreabilidade, manutenib
 willbank-analytics-case/
 │
 ├── data/
-│   ├── raw/                        # Dados fornecidos (core_account, core_pix, customer)
+│   ├── raw/                          # Dados originais fornecidos (core_account, core_pix, customer)
 │   │   ├── core_account.csv
 │   │   ├── core_pix.csv
 │   │   └── customer.csv
-│   ├── bronze/                     # Dados com tipos ajustados e padronização
+│   ├── bronze/                       # Dados tratados e padronizados
 │   │   ├── bronze_core_account.csv
 │   │   ├── bronze_core_pix.csv
 │   │   └── bronze_customer.csv
-│   ├── silver/                     # Dados enriquecidos, cruzamentos e análises
+│   ├── silver/                       # Dados enriquecidos, cruzamentos e análises intermediárias
 │   │   ├── silver_pix_transacoes.csv
 │   │   ├── silver_pix_falhou_registro.csv
 │   │   └── silver_inconsistencias.csv
-│   └── gold/                       # Dados agregados e métricas finais
+│   └── gold/                         # Dados agregados e KPIs finais
 │       ├── gold_clientes_por_uf.csv
 │       ├── gold_estatisticas_idade.csv
 │       ├── gold_falhas_por_uf.csv
@@ -46,23 +46,30 @@ willbank-analytics-case/
 │       ├── gold_transacoes_suspeitas_resumo.txt
 │       └── gold_valor_medio_pix_mensal.csv
 │
-├── scripts/                             # Transformações por camada
-│   ├── bronze_transform.py              # Geração dos arquivos Bronze (tipos, ingestão)
-│   ├── silver_transform.py              # Join completo entre PIX, account e customer
-│   ├── silver_inconsistencias.py        # PIX que não existem em core_account
-│   ├── silver_pix_falhou_registro.py    # Transações em core_account que não estão no core_pix
-│   ├── gold_kpis.py                     # Geração dos KPIs principais
-│   ├── gold_kpis_demografia.py          # Distribuição por idade e por estado
-│   └── gold_kpis_estrategicos.py        # Taxa de sucesso, suspeitas e valor médio
+├── deliverables/                    # Resultados finais e artefatos para apresentação
+│   ├── dashboard/                   # Imagens e links de dashboards (ex: Looker)
+│   │   └── link_para_o_dashboard_online.md
+│   ├── docs/                       # Documentos auxiliares e suporte
+│   └── output/                     # Gráficos, relatórios e imagens exportadas
+│       ├── falhas_por_dia.png
+│       └── falhas_por_hora.png
 │
-├── deliverables/                        # Saídas finais (dashboards, gráficos, relatórios)
-│   ├── dashboard/                       # Imagens e simulações de dashboards
-│   │   └── link_para_o_dashboard_online.md  # link para visualizar os dados online no looker
-│   ├── docs/                            # Documentos de apoio
-│   └── output/                          # Exportações para apresentação
+├── scripts/                        # Scripts organizados por camada do pipeline
+│   ├── bronze_transform.py         # Tratamento inicial e padronização (Bronze)
+│   ├── silver_transform.py         # Enriquecimento e união de dados (Silver)
+│   ├── silver_inconsistencias.py  # Detecção de inconsistências na camada Silver
+│   ├── silver_pix_falhou_registro.py # Identificação de falhas em registros PIX (Silver)
+│   ├── gold_kpis.py                # Geração dos principais KPIs (Gold)
+│   ├── gold_kpis_demografia.py    # KPIs demográficos (idade, UF) (Gold)
+│   ├── gold_kpis_estrategicos.py  # KPIs estratégicos (falhas, suspeitas) (Gold)
+│   ├── gold_falhas_temporais.py   # Análise temporal de falhas (Gold)
+│   ├── teste_falhas.py             # Scripts auxiliares para testes
+│   └── teste_status_uf.py          # Script auxiliar para validar status e UF
 │
-├── requirements.txt                    # Dependências do projeto
-└── README.md
+├── requirements.txt               # Dependências Python do projeto
+├── README.md                     # Documentação principal do projeto
+└── .gitignore                    # Configurações para Git
+
 ````
 
 -----
