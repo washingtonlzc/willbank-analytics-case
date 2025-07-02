@@ -1,6 +1,6 @@
 # Will Bank – Case Técnico: Senior Analytics Engineer
 
-**Candidato:** Washington (Kim)
+**Autor:** Washington (Kim)
 
 ---
 
@@ -77,7 +77,9 @@ Como os dados disponibilizados para o case estão em formato CSV e não em um ba
 
 Para garantir o que foi solicitado, incluí exemplos de como cada etapa poderia ser feita em SQL, seja nos comentários dos scripts ou no README do projeto, deixando claro que todo o processo pode ser facilmente adaptado para qualquer engine SQL em um ambiente de Data Lake real.
 
-```bash
+## Exemplo de Transformação Silver
+
+```sql
 -- Exemplo conceitual da transformação Silver: Unificando PIX, Account e Customer
 -- Equivalente à lógica do silver_transform.py
 
@@ -103,13 +105,14 @@ LEFT JOIN
     bronze_core_account ca ON p.cd_seqlan = ca.cd_seqlan
 LEFT JOIN
     bronze_customer c ON ca.surrogate_key = c.surrogate_key;
- ```
+```
 
-* **Exemplo conceitual da detecção de inconsistência:** PIX em Account que falhou no Core PIX
-* **Equivalente à lógica do silver_pix_falhou_registro.py:**
+### Detecção de Inconsistência
 
+* **Contexto:** PIX em Account que falhou no Core PIX
+* **Equivalente à lógica do:** `silver_pix_falhou_registro.py`
 
-```bash
+```sql
 -- Exemplo conceitual da detecção de inconsistência: PIX em Account que falhou no Core PIX
 -- Equivalente à lógica do silver_pix_falhou_registro.py
 
@@ -127,7 +130,7 @@ WHERE
         FROM bronze_core_pix p
         WHERE p.cd_seqlan = a.cd_seqlan
     );
- ```
+```
 
 ### 1\. Camada Raw
 
@@ -176,6 +179,21 @@ WHERE
       * `gold_total_pix_por_tipo.csv`
       * `gold_total_pix_por_uf.csv`
 -----
+
+### Principais Métricas (KPIs) Extraídas
+
+A partir do pipeline estruturado até a camada Gold, foram extraídas as seguintes métricas e análises, proporcionando uma visão abrangente do negócio e subsidiando a tomada de decisão:
+
+* 📈 **Taxa de Sucesso das Transações PIX**
+* ❌ **Taxa de Falha/Inconsistência PIX**
+* 🌎 **Distribuição de Clientes por UF**
+* 👵 **Distribuição Etária dos Clientes**
+* 🏆 **Ranking de UFs com Mais Erros**
+* ⏰ **Falhas por Horário/Dia**
+* 🚨 **Proposta de Alerta Automático** (quando taxa de sucesso cair abaixo de um limiar crítico)
+* 💰 **Valor Médio Mensal das Transações**
+* 🕵️ **Transações Suspeitas** (Outliers)
+
 
 ## KPIs e Propostas Estratégicas
 
@@ -301,3 +319,4 @@ Para replicar o ambiente e executar o pipeline, siga os passos abaixo:
 * O projeto busca refletir práticas reais de engenharia de dados em larga escala.
 * Foi construído para ser simples de testar, manter e escalar.
 * Todos os scripts estão separados por camada e responsabilidade.
+* Aberto a sugestões e discussões para evoluir a solução e contribuir com o time Will Bank!
