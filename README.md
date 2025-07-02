@@ -212,6 +212,27 @@ WHERE
       * `gold_total_pix_por_uf.csv`
 -----
 
+## 📊 Dashboard Gerencial (Streamlit)
+
+O projeto conta com um **dashboard interativo desenvolvido em Streamlit**, que consolida os principais KPIs e insights extraídos do pipeline, facilitando a análise executiva e a apresentação para o time de negócios.
+
+**Principais características:**
+- Visualização dinâmica dos KPIs PIX (taxa de sucesso/falha, volume por status)
+- Análise temporal de falhas (por dia da semana e ranking de UFs)
+- Distribuição demográfica dos clientes (UF e idade)
+- Detecção de outliers (transações suspeitas)
+- Propostas de evolução e governança, integradas à visão estratégica do case
+- **Cores e layout seguem a identidade visual do Will Bank (roxo, amarelo, azul claro)**
+
+**Como executar:**
+
+```bash
+pip install streamlit plotly pandas
+streamlit run scripts/dashboard.py
+
+-----
+
+
 ### Principais Métricas (KPIs) Extraídas
 
 A partir do pipeline estruturado até a camada Gold, foram extraídas as seguintes métricas e análises, proporcionando uma visão abrangente do negócio e subsidiando a tomada de decisão:
