@@ -1,4 +1,6 @@
-Total de transações suspeitas: 664817
-Média dos valores suspeitos: R$ 298.88
+Total de transações suspeitas: 109881
+Média dos valores suspeitos: R$ 307.48
+Valor máximo suspeito: R$ 10010.00
+Valor mínimo suspeito: R$ 90.01
 Limite considerado suspeito: R$ 90.00
 Mediana original: R$ 30.00

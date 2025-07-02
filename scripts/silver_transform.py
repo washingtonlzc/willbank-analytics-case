@@ -10,11 +10,11 @@ df_pix = pd.read_csv(bronze_path + 'bronze_core_pix.csv')
 df_account = pd.read_csv(bronze_path + 'bronze_core_account.csv')
 df_customer = pd.read_csv(bronze_path + 'bronze_customer.csv')
 
-# === Join PIX com ACCOUNT via cd_seqlan ===
+# === Join PIX com ACCOUNT via id_transaction ===
 pix_account = pd.merge(
     df_pix,
-    df_account[['cd_seqlan', 'surrogate_key']],
-    on='cd_seqlan',
+    df_account[['id_transaction', 'surrogate_key']],
+    on='id_transaction',
     how='left'
 )
 

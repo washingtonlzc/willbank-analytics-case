@@ -194,6 +194,40 @@ A partir do pipeline estruturado até a camada Gold, foram extraídas as seguint
 * 💰 **Valor Médio Mensal das Transações**
 * 🕵️ **Transações Suspeitas** (Outliers)
 
+## Taxa de Sucesso nas Transações PIX
+
+Para melhor compreensão e análise do desempenho das transações PIX, foram gerados dois arquivos distintos contendo informações complementares sobre o status das transações:
+
+- **`gold_taxa_sucesso_pix_percentual.csv`**  
+  Contém a distribuição percentual das transações categorizadas por status (por exemplo, "Sucesso" e "Falha").  
+  Este arquivo ajuda a entender a proporção relativa de transações bem-sucedidas versus as que apresentaram falhas, facilitando a análise do desempenho global do sistema.
+
+- **`gold_taxa_sucesso_pix_quantidade.csv`**  
+  Apresenta o número absoluto de transações para cada categoria de status.  
+  Esta informação é crucial para contextualizar o percentual, pois revela o volume real de transações em cada categoria, permitindo avaliar a significância estatística das métricas apresentadas.
+
+### Exemplo de Uso
+
+Ao analisar o percentual de sucesso de 98%, é importante também considerar que esse percentual representa, por exemplo, 1.000.000 de transações bem-sucedidas e 20.000 falhas. Dessa forma, ambos os arquivos devem ser utilizados em conjunto para garantir uma visão completa da qualidade do serviço.
+
+### Exemplos de Análises e Insights
+
+Após a detecção de inconsistências entre as camadas Core Account e Core PIX, foram realizadas análises temporais para identificar padrões de falhas:
+
+**Falhas por Dia da Semana:**
+> A análise revelou que a maior parte das falhas de PIX ocorreu nas segundas e quartas-feiras, totalizando mais de 320 ocorrências em cada um desses dias, enquanto a sexta-feira apresentou um volume significativamente menor. Este padrão pode indicar gargalos operacionais ou picos de uso nessas datas, sugerindo a necessidade de investigação direcionada e possível reforço de monitoramento ou recursos nesses períodos.
+
+**Falhas por Hora do Dia:**
+> (Insira aqui o insight do gráfico por hora, se gerou.)
+
+**Gráficos:**
+- ![Falhas por dia da semana](deliverables/output/falhas_por_dia.png)
+- ![Falhas por hora do dia](deliverables/output/falhas_por_hora.png)
+
+Esses insights permitem à equipe técnica priorizar esforços e prever janelas de maior risco, reforçando a robustez do pipeline implementado.
+
+
+
 
 ## KPIs e Propostas Estratégicas
 
