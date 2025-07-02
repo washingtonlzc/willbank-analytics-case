@@ -229,7 +229,7 @@ O projeto conta com um **dashboard interativo desenvolvido em Streamlit**, que c
 ```bash
 pip install streamlit plotly pandas
 streamlit run scripts/dashboard.py
-
+```
 -----
 
 
