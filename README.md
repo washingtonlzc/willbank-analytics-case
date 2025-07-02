@@ -352,6 +352,7 @@ Para replicar o ambiente e executar o pipeline, siga os passos abaixo:
         python scripts/gold_kpis.py
         python scripts/gold_kpis_demografia.py
         python scripts/gold_kpis_estrategicos.py
+        python scripts/gold_falhas_temporais.py
         ```
 
     Após a execução, os resultados e as saídas processadas estarão disponíveis nas respectivas pastas (`data/bronze`, `data/silver`, `data/gold`, e `deliverables/output`).

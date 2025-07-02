@@ -18,10 +18,10 @@ pix_account = pd.merge(
     how='left'
 )
 
-# === Join com CUSTOMER via surrogate_key ===
+# === Join com CUSTOMER via surrogate_key (incluindo birth_date e uf) ===
 pix_transacoes = pd.merge(
     pix_account,
-    df_customer,
+    df_customer[['surrogate_key', 'uf', 'birth_date']],  # incluído birth_date
     on='surrogate_key',
     how='left'
 )
@@ -32,7 +32,18 @@ pix_transacoes['status'] = pix_transacoes['surrogate_key'].apply(
 )
 
 # === Dias entre entrada da conta e transação ===
-pix_transacoes['entry_date'] = pd.to_datetime(pix_transacoes['entry_date'], errors='coerce')
+# Garantir que 'entry_date' exista em df_account e adicionar
+if 'entry_date' in df_account.columns:
+    pix_transacoes = pd.merge(
+        pix_transacoes,
+        df_account[['id_transaction', 'entry_date']],
+        on='id_transaction',
+        how='left'
+    )
+    pix_transacoes['entry_date'] = pd.to_datetime(pix_transacoes['entry_date'], errors='coerce')
+else:
+    pix_transacoes['entry_date'] = pd.NaT
+
 pix_transacoes['dt_transaction'] = pd.to_datetime(pix_transacoes['dt_transaction'], errors='coerce')
 pix_transacoes['dias_entre_entrada_e_pix'] = (
     pix_transacoes['dt_transaction'] - pix_transacoes['entry_date']
