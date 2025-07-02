@@ -10,9 +10,8 @@
 - [Como Executar o Projeto](#como-executar-o-projeto)
 - [Principais Métricas e KPIs](#principais-métricas-kpis)
 - [Exemplo de Análise Exploratória (EDA)](#exemplo-de-análise-exploratória-eda)
-- [Exemplo de Análise Exploratória](#exemplo-de-analise-exploratoria)
 - [Plano de Integração de Dados Externos (NPS)](#plano-de-integracao-de-dados-externos-nps)
-- [Sugestões de Governança e Melhoria](#sugestões-tecnicas-e-de-governança)
+- [Sugestões de Governança e Melhoria](#sugestoes-tecnicas-e-de-governanca)
 - [Status do Projeto](#status-do-projeto)
 
 ---
