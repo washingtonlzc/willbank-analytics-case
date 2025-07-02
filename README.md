@@ -196,7 +196,7 @@ A partir do pipeline estruturado até a camada Gold, foram extraídas as seguint
 * 🌎 **Distribuição de Clientes por UF**
 * 👵 **Distribuição Etária dos Clientes**
 * 🏆 **Ranking de UFs com Mais Erros**
-* ⏰ **Falhas por Horário/Dia**
+* ⏰ **Falhas por Dia**
 * 🚨 **Proposta de Alerta Automático** (quando taxa de sucesso cair abaixo de um limiar crítico)
 * 💰 **Valor Médio Mensal das Transações**
 * 🕵️ **Transações Suspeitas** (Outliers)
@@ -229,7 +229,6 @@ Após a detecção de inconsistências entre as camadas Core Account e Core PIX,
 
 **Gráficos:**
 - ![Falhas por dia da semana](deliverables/output/falhas_por_dia.png)
-- ![Falhas por hora do dia](deliverables/output/falhas_por_hora.png)
 
 Esses insights permitem à equipe técnica priorizar esforços e prever janelas de maior risco, reforçando a robustez do pipeline implementado.
 
@@ -253,7 +252,7 @@ Além da construção do pipeline, foram geradas métricas e propostas de valor 
       * Distribuição de clientes por estado (UF).
       * Distribuição etária dos clientes (idade média, quartis, histograma).
       * Ranking de UFs com maior taxa de erro em transações PIX.
-3.  **Análise Temporal:** Estudo do padrão de falhas ao longo do tempo (por hora, dia da semana) para identificar possíveis gargalos em momentos de pico.
+3.  **Análise Temporal:** Estudo do padrão de falhas ao longo do tempo (por dia da semana) para identificar possíveis gargalos em momentos de pico.
 4.  **Monitoramento e Alertas:** Proposta de implementação de um alerta automático (via Slack ou e-mail) caso a taxa de sucesso das transações PIX caia abaixo de um limiar crítico (ex: 98%).
 5.  **Visualização de Dados:** Simulação de um dashboard em Power BI ou Metabase para acompanhamento contínuo dos KPIs pela área de negócio (disponível em `deliverables/dashboard/`).
 

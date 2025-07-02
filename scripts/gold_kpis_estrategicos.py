@@ -4,16 +4,15 @@ import pandas as pd
 silver_path = 'data/silver/'
 gold_path = 'data/gold/'
 
-# Leitura da base Silver
-df = pd.read_csv(silver_path + 'silver_pix_transacoes.csv')
+# Leitura do arquivo que contém as falhas reais
+df_falhas = pd.read_csv(silver_path + 'silver_pix_falhou_registro.csv')
 
-# Filtra valores válidos
-df = df[df['vl_transaction'] > 0].copy()
+# Filtra falhas que possuem UF
+df_falhas_com_uf = df_falhas[df_falhas['uf'].notna()]
 
-# 1. Total de transações com falha por UF (excluindo NaN)
+# Agrupa por UF e conta total de falhas
 falhas_por_uf = (
-    df[(df['status'] == 'Falha') & (df['uf'].notna())]
-    .groupby('uf')['id_transaction']
+    df_falhas_com_uf.groupby('uf')['id_transaction']
     .count()
     .reset_index()
     .rename(columns={'id_transaction': 'total_falhas'})
@@ -22,11 +21,13 @@ falhas_por_uf.to_csv(gold_path + 'gold_falhas_por_uf.csv', index=False)
 print(f"Total de falhas por UF:\n{falhas_por_uf}")
 
 # Métrica extra: falhas sem UF
-falhas_sem_uf = df[(df['status'] == 'Falha') & (df['uf'].isna())]
-total_falhas_sem_uf = len(falhas_sem_uf)
+total_falhas_sem_uf = df_falhas['uf'].isna().sum()
 print(f"Total de falhas sem UF: {total_falhas_sem_uf}")
 
-# 2. Total de transações suspeitas (valores muito altos)
+# Leitura da base completa para transações suspeitas
+df = pd.read_csv(silver_path + 'silver_pix_transacoes.csv')
+
+# Filtra transações suspeitas (valores muito altos)
 mediana_valor = df['vl_transaction'].median()
 limite_suspeito = mediana_valor * 3
 transacoes_suspeitas = df[df['vl_transaction'] > limite_suspeito]
