@@ -13,7 +13,6 @@
 - [Plano de Integração de Dados Externos (NPS)](#plano-de-integracao-de-dados-externos-nps)
 - [Sugestões de Governança e Melhoria](#sugestões-tecnicas-e-de-governança)
 - [Status do Projeto](#status-do-projeto)
-- [Referências](#referências)
 
 ---
 
