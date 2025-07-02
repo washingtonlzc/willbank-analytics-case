@@ -98,7 +98,7 @@ willbank-analytics-case/
 
 -----
 
-## Etapas do Pipeline
+## Arquitetura do Pipeline
 
 O pipeline foi construído seguindo a metodologia **Medallion Architecture** para garantir qualidade e governança.
 
@@ -232,7 +232,7 @@ streamlit run scripts/dashboard.py
 -----
 
 
-### Principais Métricas (KPIs) Extraídas
+### Principais Métricas e KPIs
 
 A partir do pipeline estruturado até a camada Gold, foram extraídas as seguintes métricas e análises, proporcionando uma visão abrangente do negócio e subsidiando a tomada de decisão:
 
@@ -318,11 +318,11 @@ Além da construção do pipeline, foram geradas métricas e propostas de valor 
 
 -----
 
-## Sugestões Técnicas e de Governança
+## Sugestões de Governança e Melhoria
 
 Para garantir a evolução e a sustentabilidade da solução, as seguintes melhorias são propostas:
 
-### 1. Ingestão de Dados Externos (NPS) - Plano de Ação
+### 1. Plano de Integração de Dados Externos (NPS)
 
 Para integrar os dados da pesquisa de satisfação do cliente (NPS) fornecidos via API externa, conforme solicitado, propõe-se o seguinte plano de ação detalhado em tópicos, alinhado à arquitetura Medallion:
 
