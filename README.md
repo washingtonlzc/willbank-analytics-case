@@ -1,3 +1,16 @@
+## Sumário
+
+- [Objetivo do Case](#objetivo-do-case)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Arquitetura do Pipeline](#arquitetura-da-informacao)
+- [Como Executar o Projeto](#como-executar-o-projeto)
+- [Principais Métricas e KPIs](#principais-métricas-kpis)
+- [Exemplo de Análise Exploratória](#exemplo-de-analise-exploratoria)
+- [Plano de Integração de Dados Externos (NPS)](#plano-de-integracao-de-dados-externos-nps)
+- [Sugestões de Governança e Melhoria](#sugestões-tecnicas-e-de-governança)
+- [Status do Projeto](#status-do-projeto)
+- [Referências](#referências)
+
 # Will Bank – Case Técnico: Senior Analytics Engineer
 
 **Autor:** Washington (Kim)
@@ -32,14 +45,19 @@ willbank-analytics-case/
 │   │   ├── bronze_core_pix.csv
 │   │   └── bronze_customer.csv
 │   ├── silver/                       # Dados enriquecidos, cruzamentos e análises intermediárias
-│   │   ├── silver_pix_transacoes.csv
+│   │   ├── silver_inconsistencias.csv
 │   │   ├── silver_pix_falhou_registro.csv
-│   │   └── silver_inconsistencias.csv
+│   │   ├── silver_pix_falhou_registro_com_uf.csv
+│   │   └── silver_pix_transacoes.csv
 │   └── gold/                         # Dados agregados e KPIs finais
 │       ├── gold_clientes_por_uf.csv
 │       ├── gold_estatisticas_idade.csv
+│       ├── gold_falhas_por_dia.csv
+│       ├── gold_falhas_por_hora.csv
 │       ├── gold_falhas_por_uf.csv
-│       ├── gold_taxa_sucesso_pix.csv
+│       ├── gold_ranking_falhas_por_uf.csv
+│       ├── gold_taxa_sucesso_pix_percentual.csv
+│       ├── gold_taxa_sucesso_pix_quantidade.csv
 │       ├── gold_total_pix_por_tipo.csv
 │       ├── gold_total_pix_por_uf.csv
 │       ├── gold_transacoes_suspeitas.csv
@@ -52,9 +70,16 @@ willbank-analytics-case/
 │   ├── docs/                       # Documentos auxiliares e suporte
 │   └── output/                     # Gráficos, relatórios e imagens exportadas
 │       ├── falhas_por_dia.png
-│       └── falhas_por_hora.png
+│       └── ranking_falhas_por_uf.png
 │
 ├── scripts/                        # Scripts organizados por camada do pipeline
+│   ├── validation/
+│   │   ├── testa_falhas_por_uf.py
+│   │   ├── verifica_e_roda_pipeline.py
+│   │   ├── verifica_surrogate_key_cliente.py
+│   │   ├── verifica_surrogate_key_falhas.py
+│   │   ├── verifica_uf_falhas.py
+│   │   └── verifica_uf_nos_bronze.py
 │   ├── bronze_transform.py         # Tratamento inicial e padronização (Bronze)
 │   ├── silver_transform.py         # Enriquecimento e união de dados (Silver)
 │   ├── silver_inconsistencias.py  # Detecção de inconsistências na camada Silver
@@ -63,8 +88,8 @@ willbank-analytics-case/
 │   ├── gold_kpis_demografia.py    # KPIs demográficos (idade, UF) (Gold)
 │   ├── gold_kpis_estrategicos.py  # KPIs estratégicos (falhas, suspeitas) (Gold)
 │   ├── gold_falhas_temporais.py   # Análise temporal de falhas (Gold)
-│   ├── teste_falhas.py             # Scripts auxiliares para testes
-│   └── teste_status_uf.py          # Script auxiliar para validar status e UF
+│   ├── gold_ranking_falhas_por_uf.py # Ranking de falhas por UF (Gold)
+│   └── teste.ipynb                 # Scripts auxiliares para testes
 │
 ├── requirements.txt               # Dependências Python do projeto
 ├── README.md                     # Documentação principal do projeto
@@ -352,6 +377,7 @@ Para replicar o ambiente e executar o pipeline, siga os passos abaixo:
         python scripts/gold_kpis_demografia.py
         python scripts/gold_kpis_estrategicos.py
         python scripts/gold_falhas_temporais.py
+        python scripts/gold_ranking_falhas_por_uf.py
         ```
 
     Após a execução, os resultados e as saídas processadas estarão disponíveis nas respectivas pastas (`data/bronze`, `data/silver`, `data/gold`, e `deliverables/output`).

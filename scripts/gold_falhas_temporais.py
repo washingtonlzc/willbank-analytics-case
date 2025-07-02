@@ -27,6 +27,11 @@ plt.title('Falhas PIX por Dia da Semana')
 plt.xlabel('Dia da Semana')
 plt.ylabel('Quantidade de Falhas')
 plt.grid(axis='y')
+
+# Adiciona valores acima das barras
+for i, valor in enumerate(falhas_por_dia['qtd_falhas']):
+    plt.text(i, valor + 5, str(valor), ha='center', va='bottom')
+
 plt.savefig(output_path + 'falhas_por_dia.png')
 plt.show()
 

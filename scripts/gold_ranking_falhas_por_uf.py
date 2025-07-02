@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 gold_path = 'data/gold/'
 output_path = 'deliverables/output/'
 
-# Leitura do arquivo com falhas por UF
+# Leitura do arquivo gold_falhas_por_uf.csv
 df = pd.read_csv(gold_path + 'gold_falhas_por_uf.csv')
 
 # Ordenar decrescente pelo total de falhas
@@ -17,12 +17,17 @@ df_ranked.to_csv(gold_path + 'gold_ranking_falhas_por_uf.csv', index=False)
 # Gerar gráfico de barras do ranking
 plt.figure(figsize=(10,6))
 plt.bar(df_ranked['uf'], df_ranked['total_falhas'])
+
+# Adicionar valores acima das barras
+for i, valor in enumerate(df_ranked['total_falhas']):
+    plt.text(i, valor + 1, str(valor), ha='center', va='bottom')
+
 plt.title('Ranking de UFs com Mais Falhas em Transações PIX')
 plt.xlabel('UF')
 plt.ylabel('Total de Falhas')
 plt.xticks(rotation=45)
 plt.tight_layout()
-plt.savefig(f'{output_path}ranking_falhas_por_uf.png')
+plt.savefig(output_path + 'ranking_falhas_por_uf.png')
 plt.show()
 
 print("Ranking de falhas por UF gerado e salvo com sucesso!")
