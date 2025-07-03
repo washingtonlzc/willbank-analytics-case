@@ -270,8 +270,6 @@ Esse indicador mede o engajamento inicial do cliente com o PIX e pode indicar op
 *Detalhes completos disponíveis em:*  
 `data/gold/gold_longevidade_primeiro_pix.csv`  
 `data/gold/gold_longevidade_primeiro_pix_resumo.txt`
-
-### KPIs e Propostas Estratégicas
 ...
 
 
@@ -287,22 +285,6 @@ Para melhor compreensão e análise do desempenho das transações PIX, foram ge
   Apresenta o número absoluto de transações para cada categoria de status.  
   Esta informação é crucial para contextualizar o percentual, pois revela o volume real de transações em cada categoria, permitindo avaliar a significância estatística das métricas apresentadas.
 
-### Exemplo de Uso
-
-Ao analisar o percentual de sucesso de 98%, é importante também considerar que esse percentual representa, por exemplo, 1.000.000 de transações bem-sucedidas e 20.000 falhas. Dessa forma, ambos os arquivos devem ser utilizados em conjunto para garantir uma visão completa da qualidade do serviço.
-
-### Exemplos de Análises e Insights
-
-Após a detecção de inconsistências entre as camadas Core Account e Core PIX, foram realizadas análises temporais para identificar padrões de falhas:
-
-**Falhas por Dia da Semana:**
-> A análise revelou que a maior parte das falhas de PIX ocorreu nas segundas e quartas-feiras, totalizando mais de 320 ocorrências em cada um desses dias, enquanto a sexta-feira apresentou um volume significativamente menor. Este padrão pode indicar gargalos operacionais ou picos de uso nessas datas, sugerindo a necessidade de investigação direcionada e possível reforço de monitoramento ou recursos nesses períodos.
-
-**Falhas por Hora do Dia:**
-> (Insira aqui o insight do gráfico por hora, se gerou.)
-
-**Gráficos:**
-- ![Falhas por dia da semana](deliverables/output/falhas_por_dia.png)
 
 Esses insights permitem à equipe técnica priorizar esforços e prever janelas de maior risco, reforçando a robustez do pipeline implementado.
 
@@ -310,19 +292,6 @@ Esses insights permitem à equipe técnica priorizar esforços e prever janelas 
 
 Antes do desenvolvimento completo do pipeline, foi realizada uma análise exploratória dos dados (EDA) para identificar padrões, avaliar a qualidade e levantar possíveis inconsistências.  
 O notebook completo da EDA, com gráficos e insights, pode ser consultado em [`scripts/eda_willbank.ipynb`](scripts/eda_willbank.ipynb).
-
-### Exemplo de insight visual:
-![Exemplo de gráfico temporal de transações](deliverables/output/falhas_por_dia.png)
-
-> *Exemplo:* O gráfico acima mostra que as falhas de PIX se concentram principalmente em determinados dias da semana, o que pode indicar gargalos operacionais e orientar o reforço de monitoramento em datas críticas.
-
-Outros exemplos de insights extraídos:
-- Evolução diária do volume de transações PIX
-- Distribuição de valores de transação (identificação de outliers)
-- Perfil geográfico e etário dos clientes
-
-*Para detalhes completos da análise exploratória, consulte o notebook na pasta `/scripts/`.*
-
 
 ## KPIs e Propostas Estratégicas
 
@@ -389,17 +358,6 @@ Para integrar os dados da pesquisa de satisfação do cliente (NPS) fornecidos v
     * **Observabilidade:** Implementar logging detalhado para monitorar a execução, erros da API e volumes de dados.
     * **Alertas:** Configurar alertas (e.g., via e-mail ou Slack) para falhas na ingestão ou anomalias nos dados de NPS (ex: queda abrupta do score).
     * **Versionamento:** Garantir que o código da ingestão e as definições das tabelas sejam versionados no Git, e considerar o uso de ferramentas como DVC para versionar os próprios datasets de NPS.
-
-
-
-1.  **Ingestão de Dados Externos (NPS):** Planejamento para ingestão de dados de satisfação do cliente (NPS) via API. Isso permitiria correlacionar a experiência do cliente com a performance de produtos como o PIX.
-2.  **Governança de Dados:**
-      * **Versionamento de Dados:** Implementar o versionamento dos datasets (ex: com DVC) para garantir reprodutibilidade.
-      * **Testes de Integridade:** Criar um framework de testes automatizados (ex: Great Expectations) para validar a qualidade dos dados a cada execução do pipeline.
-      * **Score de Confiabilidade:** Desenvolver um health score dos dados, que meça a qualidade, atualidade e completude das tabelas críticas.
-3.  **Análise de Impacto Financeiro:** Estimar o impacto financeiro das falhas PIX, considerando custos operacionais de suporte e o potencial churn de clientes insatisfeitos.
-
-
 
 ---
 
