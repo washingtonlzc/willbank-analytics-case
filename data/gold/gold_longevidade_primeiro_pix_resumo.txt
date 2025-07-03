@@ -1,0 +1,9 @@
+count    479.000000
+mean      27.484342
+std       79.207234
+min     -207.000000
+25%      -21.000000
+50%       36.000000
+75%       86.000000
+max      177.000000
+Name: dias_ate_primeiro_pix, dtype: float64

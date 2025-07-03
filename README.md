@@ -47,7 +47,7 @@ willbank-analytics-case/
 │   │   ├── silver_inconsistencias.csv
 │   │   ├── silver_pix_falhou_registro.csv
 │   │   ├── silver_pix_falhou_registro_com_uf.csv
-│   │   └── silver_pix_transacoes.csv
+│   │   └── silver_pix_transacoes.csv 
 │   └── gold/                         # Dados agregados e KPIs finais
 │       ├── gold_clientes_por_uf.csv
 │       ├── gold_estatisticas_idade.csv
@@ -245,6 +245,32 @@ A partir do pipeline estruturado até a camada Gold, foram extraídas as seguint
 * 🚨 **Proposta de Alerta Automático** (quando taxa de sucesso cair abaixo de um limiar crítico)
 * 💰 **Valor Médio Mensal das Transações**
 * 🕵️ **Transações Suspeitas** (Outliers)
+
+
+### Distribuição Etária dos Clientes
+...
+(descrição dessa análise)
+
+## Longevidade até o Primeiro PIX
+
+Foi calculado o tempo (em dias) entre a data de abertura da conta e a data da primeira transação PIX de cada cliente.  
+Esse indicador mede o engajamento inicial do cliente com o PIX e pode indicar oportunidades para campanhas de ativação, educação ou melhorias no onboarding.
+
+- **Média de dias até o 1º PIX:** 27 dias  
+- **Mediana:** 36 dias  
+- **Quartis:** 25% (-21), 75% (86)  
+- **Mínimo:** -207 dias (possível erro de cadastro ou retroalimentação do sistema)  
+- **Máximo:** 177 dias
+
+> Valores negativos sugerem inconsistências cadastrais ou processos retroativos de registro, recomendando revisão nos sistemas de origem.
+
+*Detalhes completos disponíveis em:*  
+`data/gold/gold_longevidade_primeiro_pix.csv`  
+`data/gold/gold_longevidade_primeiro_pix_resumo.txt`
+
+### KPIs e Propostas Estratégicas
+...
+
 
 ## Taxa de Sucesso nas Transações PIX
 
