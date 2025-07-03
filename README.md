@@ -1,6 +1,6 @@
 # Will Bank – Case Técnico: Senior Analytics Engineer
 
-**Autor:** Washington (Kim)
+**Autor:** Washington Campos
 
 ## Sumário
 
@@ -34,66 +34,70 @@ O repositório está organizado de forma a garantir a rastreabilidade, manutenib
 ```bash
 willbank-analytics-case/
 │
-├── assets/will-bank.svg
+├── assets/will-bank.svg                            # Logo em svg do will para o (figma e dashboard)
 ├── data/
-│   ├── raw/                          # Dados originais fornecidos (core_account, core_pix, customer)
+│   ├── raw/                                        # Dados originais fornecidos (core_account, core_pix, customer)
 │   │   ├── core_account.csv
 │   │   ├── core_pix.csv
 │   │   └── customer.csv
-│   ├── bronze/                       # Dados tratados e padronizados
+│   ├── bronze/                                     # Dados tratados e padronizados
 │   │   ├── bronze_core_account.csv
 │   │   ├── bronze_core_pix.csv
 │   │   └── bronze_customer.csv
-│   ├── silver/                       # Dados enriquecidos, cruzamentos e análises intermediárias
+│   ├── silver/                                     # Dados enriquecidos, cruzamentos e análises intermediárias
 │   │   ├── silver_inconsistencias.csv
 │   │   ├── silver_pix_falhou_registro.csv
 │   │   ├── silver_pix_falhou_registro_com_uf.csv
 │   │   └── silver_pix_transacoes.csv 
-│   └── gold/                         # Dados agregados e KPIs finais
-│       ├── gold_clientes_por_uf.csv
-│       ├── gold_estatisticas_idade.csv
-│       ├── gold_falhas_por_dia.csv
-│       ├── gold_falhas_por_hora.csv
-│       ├── gold_falhas_por_uf.csv
-│       ├── gold_ranking_falhas_por_uf.csv
-│       ├── gold_taxa_sucesso_pix_percentual.csv
-│       ├── gold_taxa_sucesso_pix_quantidade.csv
-│       ├── gold_total_pix_por_tipo.csv
-│       ├── gold_total_pix_por_uf.csv
-│       ├── gold_transacoes_suspeitas.csv
-│       ├── gold_transacoes_suspeitas_resumo.txt
-│       └── gold_valor_medio_pix_mensal.csv
+│   └── gold/                                       # Dados agregados e KPIs finais (camada Gold do pipeline)
+│       ├── gold_clientes_por_uf.csv                # Quantidade de clientes por estado (UF)
+│       ├── gold_estatisticas_idade.csv             # Estatísticas descritivas da idade dos clientes (média, mediana, quartis)
+│       ├── gold_falhas_por_dia.csv                 # Volume de falhas em transações PIX por dia da semana
+│       ├── gold_falhas_por_hora.csv                # Volume de falhas em transações PIX por hora do dia
+│       ├── gold_falhas_por_uf.csv                  # Total de falhas em transações PIX por estado (UF)
+│       ├── gold_longevidade_primeiro_pix.csv       # Tempo (em dias) entre a abertura da conta e o primeiro PIX de cada cliente
+│       ├── gold_longevidade_primeiro_pix_resumo.txt # Estatísticas-resumo sobre a longevidade até o primeiro PIX
+│       ├── gold_ranking_falhas_por_uf.csv          # Ranking dos estados (UF) com mais falhas em transações PIX
+│       ├── gold_taxa_sucesso_pix_percentual.csv    # Percentual de sucesso/falha nas transações PIX
+│       ├── gold_taxa_sucesso_pix_quantidade.csv    # Quantidade absoluta de transações PIX por status (sucesso/falha)
+│       ├── gold_total_pix_por_tipo.csv             # Volume de transações PIX por tipo de chave (CPF, e-mail, celular, aleatória)
+│       ├── gold_total_pix_por_uf.csv               # Total de transações PIX por estado (UF)
+│       ├── gold_transacoes_suspeitas.csv           # Lista detalhada das transações PIX suspeitas (outliers)
+│       ├── gold_transacoes_suspeitas_resumo.txt    # Resumo estatístico das transações suspeitas (outliers)
+│       ├── gold_valor_medio_pix_mensal.csv         # Valor médio mensal das transações PIX
 │
-├── deliverables/                    # Resultados finais e artefatos para apresentação
-│   ├── dashboard/                   # Imagens e links de dashboards (ex: Looker)
-│   │   └── link_para_o_dashboard_online.md
-│   ├── docs/                       # Documentos auxiliares e suporte
-│   └── output/                     # Gráficos, relatórios e imagens exportadas
+├── deliverables/                                   # Resultados finais e artefatos para apresentação
+│   ├── dashboard/                                  # Imagens e links de dashboards
+│   │   ├── link_para_o_dashboard_online.md         # Links do prototipo de dashboard no Looker
+│   │   └── figma_link.md                           # Links do prototipo de dashboard no Figma
+│   ├── docs/                                       # Documentos auxiliares e suporte
+│   └── output/                                     # Gráficos, relatórios e imagens exportadas
 │       ├── falhas_por_dia.png
 │       └── ranking_falhas_por_uf.png
 │
-├── scripts/                        # Scripts organizados por camada do pipeline
-│   ├── validation/
-│   │   ├── testa_falhas_por_uf.py
-│   │   ├── verifica_e_roda_pipeline.py
-│   │   ├── verifica_surrogate_key_cliente.py
-│   │   ├── verifica_surrogate_key_falhas.py
-│   │   ├── verifica_uf_falhas.py
-│   │   └── verifica_uf_nos_bronze.py
-│   ├── bronze_transform.py         # Tratamento inicial e padronização (Bronze)
-│   ├── silver_transform.py         # Enriquecimento e união de dados (Silver)
-│   ├── silver_inconsistencias.py  # Detecção de inconsistências na camada Silver
-│   ├── silver_pix_falhou_registro.py # Identificação de falhas em registros PIX (Silver)
-│   ├── gold_kpis.py                # Geração dos principais KPIs (Gold)
-│   ├── gold_kpis_demografia.py    # KPIs demográficos (idade, UF) (Gold)
-│   ├── gold_kpis_estrategicos.py  # KPIs estratégicos (falhas, suspeitas) (Gold)
-│   ├── gold_falhas_temporais.py   # Análise temporal de falhas (Gold)
-│   ├── gold_ranking_falhas_por_uf.py # Ranking de falhas por UF (Gold)
-│   └── teste.ipynb                 # Scripts auxiliares para testes
+├── scripts/                                     # Scripts organizados por camada do pipeline
+│   ├── validation/                              # Scripts auxiliares para validação e testes dos dados
+│   │   ├── testa_falhas_por_uf.py               # Gera o total de falhas PIX por UF (estado) a partir da silver, salvando para a gold (gold_falhas_por_uf.csv)
+│   │   ├── verifica_e_roda_pipeline.py          # Verifica se o arquivo silver está correto e, se necessário, executa o pipeline silver_transform.py automaticamente
+│   │   ├── verifica_surrogate_key_cliente.py    # Valida se todos os surrogate_key presentes nas falhas existem na base de clientes (bronze_customer.csv)
+│   │   ├── verifica_surrogate_key_falhas.py     # Mostra quantos surrogate_key estão ausentes ou presentes nas falhas (silver_pix_falhou_registro.csv)
+│   │   ├── verifica_uf_falhas.py                # Checa a presença de valores nulos e não nulos na coluna 'uf' das falhas de PIX (silver)
+│   │   └── verifica_uf_nos_bronze.py            # Mostra e examina a presença da coluna 'uf' e exemplos nos arquivos bronze (account, pix, customer)
+│   │
+│   ├── bronze_transform.py                      # Tratamento inicial e padronização (Bronze)
+│   ├── silver_transform.py                      # Enriquecimento e união de dados (Silver)
+│   ├── silver_inconsistencias.py                # Detecção de inconsistências na camada Silver
+│   ├── silver_pix_falhou_registro.py            # Identificação de falhas em registros PIX (Silver)
+│   ├── gold_kpis.py                             # Geração dos principais KPIs (Gold)
+│   ├── gold_kpis_demografia.py                  # KPIs demográficos (idade, UF) (Gold)
+│   ├── gold_kpis_estrategicos.py                # KPIs estratégicos (falhas, suspeitas) (Gold)
+│   ├── gold_falhas_temporais.py                 # Análise temporal de falhas (Gold)
+│   ├── gold_ranking_falhas_por_uf.py            # Ranking de falhas por UF (Gold)
+│   └── run_pipeline.py                          # Scripts que executa de uma só vez toda pipeline
 │
-├── requirements.txt               # Dependências Python do projeto
-├── README.md                     # Documentação principal do projeto
-└── .gitignore                    # Configurações para Git
+├── requirements.txt                             # Dependências Python do projeto
+├── README.md                                    # Documentação principal do projeto
+└── .gitignore                                   # Configurações para Git
 
 ````
 
@@ -249,10 +253,6 @@ A partir do pipeline estruturado até a camada Gold, foram extraídas as seguint
 * 💰 **Valor Médio Mensal das Transações**
 * 🕵️ **Transações Suspeitas** (Outliers)
 
-
-### Distribuição Etária dos Clientes
-...
-(descrição dessa análise)
 
 ## Longevidade até o Primeiro PIX
 
@@ -422,7 +422,16 @@ Para replicar o ambiente e executar o pipeline, siga os passos abaixo:
     pip install -r requirements.txt
     ```
 
-3.  **Executar o Pipeline:**
+3.  **Executar o Pipeline completo:**
+        Basta executar o run_pipeline.py:
+
+     * **Executar o Pipeline Automaticamente:**
+        ```bash
+        python scripts/run_pipeline.py
+        ```
+    Esse script executa automaticamente todos os passos das camadas Bronze, Silver e Gold na ordem correta, gerando todos os arquivos processados.
+
+    **(Opcional) Executar o Pipeline por Etapa:**
     Siga a ordem de execução das camadas para processar os dados:
 
     * **Camada Bronze:**
@@ -442,6 +451,12 @@ Para replicar o ambiente e executar o pipeline, siga os passos abaixo:
         python scripts/gold_kpis_estrategicos.py
         python scripts/gold_falhas_temporais.py
         python scripts/gold_ranking_falhas_por_uf.py
+        python scripts/gold_longevidade_primeiro_pix.py
+        ```
+    * **(Opcional) Rodar o Dashboard:**
+        Para visualizar os principais KPIs e análises do projeto, execute:
+        ```bash
+        streamlit run scripts/dashboard.py
         ```
 
     Após a execução, os resultados e as saídas processadas estarão disponíveis nas respectivas pastas (`data/bronze`, `data/silver`, `data/gold`, e `deliverables/output`).
