@@ -1,4 +1,4 @@
-# ![Logo Will Bank](assets/will-bank.svg) – Case Técnico: Senior Analytics Engineer
+# <img src="assets/will-bank.svg" alt="Logo Will Bank" width="150"/> – Case Técnico: Senior Analytics Engineer
 
 **Autor:** Washington Campos
 
