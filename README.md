@@ -34,6 +34,7 @@ O repositório está organizado de forma a garantir a rastreabilidade, manutenib
 ```bash
 willbank-analytics-case/
 │
+├── assets/will-bank.svg
 ├── data/
 │   ├── raw/                          # Dados originais fornecidos (core_account, core_pix, customer)
 │   │   ├── core_account.csv
@@ -211,9 +212,11 @@ WHERE
       * `gold_total_pix_por_uf.csv`
 -----
 
-## 📊 Dashboard Gerencial (Streamlit)
+## 📊 Dashboard Gerencial (Streamlit & Figma)
 
-O projeto conta com um **dashboard interativo desenvolvido em Streamlit**, que consolida os principais KPIs e insights extraídos do pipeline, facilitando a análise executiva e a apresentação para o time de negócios.
+O projeto conta com um dashboard interativo desenvolvido em Streamlit (**veja instruções abaixo para rodar localmente**) e um protótipo visual de dashboard criado no Figma para ilustrar como seria a entrega final para o negócio.
+
+- [Link para o protótipo no Figma](https://www.figma.com/design/kCj4qhSlHDMhnOVmoZo7Un/Willbank-Dashboard-Case?node-id=0-1&t=J9Df221xte2GYwCR-1) 
 
 **Principais características:**
 - Visualização dinâmica dos KPIs PIX (taxa de sucesso/falha, volume por status)

@@ -105,7 +105,6 @@ menu = st.sidebar.radio("Navegue pelo dashboard", [
 ])
 
 # --- 1. Visão Geral (Resumo)
-# --- 1. Visão Geral (Resumo)
 if menu == "Visão Geral":
     st.title("Painel Gerencial Will Bank")
 
