@@ -78,7 +78,6 @@ willbank-analytics-case/
 ├── scripts/                                     # Scripts organizados por camada do pipeline
 │   ├── validation/                              # Scripts auxiliares para validação e testes dos dados
 │   │   ├── testa_falhas_por_uf.py               # Gera o total de falhas PIX por UF (estado) a partir da silver, salvando para a gold (gold_falhas_por_uf.csv)
-│   │   ├── verifica_e_roda_pipeline.py          # Verifica se o arquivo silver está correto e, se necessário, executa o pipeline silver_transform.py automaticamente
 │   │   ├── verifica_surrogate_key_cliente.py    # Valida se todos os surrogate_key presentes nas falhas existem na base de clientes (bronze_customer.csv)
 │   │   ├── verifica_surrogate_key_falhas.py     # Mostra quantos surrogate_key estão ausentes ou presentes nas falhas (silver_pix_falhou_registro.csv)
 │   │   ├── verifica_uf_falhas.py                # Checa a presença de valores nulos e não nulos na coluna 'uf' das falhas de PIX (silver)
@@ -168,6 +167,8 @@ WHERE
     );
 ```
 
+
+### Camadas da PipeLine
 ### 1\. Camada Raw
 
 * **Origem:** `data/raw/`
