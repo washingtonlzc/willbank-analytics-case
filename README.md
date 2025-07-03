@@ -1,4 +1,4 @@
-# Will Bank – Case Técnico: Senior Analytics Engineer
+# ![Logo Will Bank](assets/will-bank.svg) – Case Técnico: Senior Analytics Engineer
 
 **Autor:** Washington Campos
 
@@ -371,14 +371,6 @@ Para integrar os dados da pesquisa de satisfação do cliente (NPS) fornecidos v
 
 ---
 
-## Status do Projeto
-
-✅ **Pipeline Implementado:** As camadas Raw → Bronze → Silver → Gold estão completas.
-✅ **Análises Estratégicas:** KPIs e análises de negócio foram desenvolvidos.
-✅ **Pronto para Expansão:** Projeto estruturado para futuras integrações via API e visualização em ferramentas de BI.
-
----
-
 ## Como Executar o Projeto
 
 1.  **Pré-requisitos:** Certifique-se de ter o Python (versão 3.x) e o `pip` instalados em sua máquina.
@@ -424,6 +416,23 @@ Para integrar os dados da pesquisa de satisfação do cliente (NPS) fornecidos v
 
     Após a execução, os resultados e as saídas processadas estarão disponíveis nas respectivas pastas (`data/bronze`, `data/silver`, `data/gold`, e `deliverables/output`).
 ---
+
+## Apresentação do Case
+
+O slide da apresentação do case está disponível para consulta online:
+
+[Visualizar Apresentação no Canva](https://www.canva.com/design/DAGsGE1U-ek/GJ_vJNf_creuVi79zAl51Q/edit?utm_content=DAGsGE1U-ek&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+---
+
+## Status do Projeto
+
+✅ **Pipeline Implementado:** As camadas Raw → Bronze → Silver → Gold estão completas.
+✅ **Análises Estratégicas:** KPIs e análises de negócio foram desenvolvidos.
+✅ **Pronto para Expansão:** Projeto estruturado para futuras integrações via API e visualização em ferramentas de BI.
+
+---
+
 ## Observações Finais
 * O projeto busca refletir práticas reais de engenharia de dados em larga escala.
 * Foi construído para ser simples de testar, manter e escalar.
