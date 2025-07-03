@@ -106,6 +106,18 @@ willbank-analytics-case/
 
 O pipeline foi construído em Python, com análise e documentação em Jupyter Notebook, visualização dos dados em Streamlit e um protótipo básico de dashboard no Figma, para ilustrar a visão final do produto. Todos os scripts foram separados por camadas (Bronze, Silver, Gold), seguindo a metodologia **Medallion Architecture** e boas praticas de engenharia de dados para garantir qualidade e governança.
 
+
+# Exemplos Visuais
+## Dashboard interativo (Python/Streamlit)
+![Dashboard Streamlit](assets/dashboard_streamlit.png)
+
+## EDA e insights no Jupyter Notebook
+![EDA Jupyter](assets/eda_jupyter.png)
+
+## Protótipo visual no Figma
+![Figma dashboard](assets/figma_dashboard.png)
+
+
 ### Notas sobre a Implementação e SQL
 
 Como os dados disponibilizados para o case estão em formato CSV e não em um banco de dados real, optei por utilizar o Pandas para realizar as transformações e análises localmente. O Pandas permite simular praticamente todos os comandos SQL clássicos, como SELECT, JOIN e GROUP BY, então consigo aplicar as regras do pipeline sem perder nenhuma funcionalidade.
