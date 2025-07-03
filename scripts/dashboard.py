@@ -134,34 +134,7 @@ if menu == "Visão Geral":
         </div>
         """, unsafe_allow_html=True)
     
-    st.markdown("### Resumo de Metricas")
-    
-    # Cards KPI - EXEMPLO DE VALORES (troque pelos seus dados reais)
-    total_pix = 1250000
-    taxa_sucesso = 97.8
-    clientes_unicos = 95000
-    valor_total = 258000000.00
 
-    st.markdown(f"""
-    <div style="display:flex;justify-content:center;gap:24px;margin-bottom:30px;">
-        <div style="background:#fff;color:#000;padding:24px 40px;border-radius:15px;min-width:180px;max-width:220px;box-shadow:0 1px 6px #0001;text-align:center;">
-            <div style="font-weight:700;font-size:1.6em;">{total_pix:,}</div>
-            <div style="font-size:1.05em;margin-top:6px;">Transações PIX Processadas</div>
-        </div>
-        <div style="background:#fff;color:#000;padding:24px 40px;border-radius:15px;min-width:180px;max-width:220px;box-shadow:0 1px 6px #0001;text-align:center;">
-            <div style="font-weight:700;font-size:1.6em;">{taxa_sucesso:.1f}%</div>
-            <div style="font-size:1.05em;margin-top:6px;">Taxa de Sucesso das Transações PIX</div>
-        </div>
-        <div style="background:#fff;color:#000;padding:24px 40px;border-radius:15px;min-width:180px;max-width:220px;box-shadow:0 1px 6px #0001;text-align:center;">
-            <div style="font-weight:700;font-size:1.6em;">{clientes_unicos:,}</div>
-            <div style="font-size:1.05em;margin-top:6px;">Clientes Únicos com Transações PIX</div>
-        </div>
-        <div style="background:#fff;color:#000;padding:24px 40px;border-radius:15px;min-width:180px;max-width:220px;box-shadow:0 1px 6px #0001;text-align:center;">
-            <div style="font-weight:700;font-size:1.6em;">{formatar_brl(valor_total)}</div>
-            <div style="font-size:1.05em;margin-top:6px;">Valor Total Movimentado via PIX</div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
 
     st.markdown("""
     <p style="text-align:center; font-size:1.05em; color:#333; max-width:720px; margin-left:auto; margin-right:auto;">

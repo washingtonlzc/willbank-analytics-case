@@ -104,7 +104,7 @@ willbank-analytics-case/
 
 ## Arquitetura do Pipeline
 
-O pipeline foi construído seguindo a metodologia **Medallion Architecture** para garantir qualidade e governança.
+O pipeline foi construído em Python, com análise e documentação em Jupyter Notebook, visualização dos dados em Streamlit e um protótipo básico de dashboard no Figma, para ilustrar a visão final do produto. Todos os scripts foram separados por camadas (Bronze, Silver, Gold), seguindo a metodologia **Medallion Architecture** e boas praticas de engenharia de dados para garantir qualidade e governança.
 
 ### Notas sobre a Implementação e SQL
 
