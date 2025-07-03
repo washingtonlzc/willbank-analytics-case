@@ -228,7 +228,7 @@ O projeto conta com um dashboard interativo desenvolvido em Streamlit (**veja in
 - Distribuição demográfica dos clientes (UF e idade)
 - Detecção de outliers (transações suspeitas)
 - Propostas de evolução e governança, integradas à visão estratégica do case
-- **Cores e layout seguem a identidade visual do Will Bank (roxo, amarelo, azul claro)**
+- **Cores e layout seguem a identidade visual do Will Bank (amarelo, preto, branco)**
 
 **Como executar:**
 
@@ -413,8 +413,6 @@ Para integrar os dados da pesquisa de satisfação do cliente (NPS) fornecidos v
 
 ## Como Executar o Projeto
 
-Para replicar o ambiente e executar o pipeline, siga os passos abaixo:
-
 1.  **Pré-requisitos:** Certifique-se de ter o Python (versão 3.x) e o `pip` instalados em sua máquina.
 
 2.  **Instalar Dependências:**
@@ -423,15 +421,12 @@ Para replicar o ambiente e executar o pipeline, siga os passos abaixo:
     ```
 
 3.  **Executar o Pipeline completo:**
-        Basta executar o run_pipeline.py:
-
-     * **Executar o Pipeline Automaticamente:**
-        ```bash
-        python scripts/run_pipeline.py
-        ```
+    ```bash
+    python scripts/run_pipeline.py
+    ```
     Esse script executa automaticamente todos os passos das camadas Bronze, Silver e Gold na ordem correta, gerando todos os arquivos processados.
 
-    **(Opcional) Executar o Pipeline por Etapa:**
+4.  **(Opcional) Executar o Pipeline por Etapa:**
     Siga a ordem de execução das camadas para processar os dados:
 
     * **Camada Bronze:**
@@ -453,7 +448,7 @@ Para replicar o ambiente e executar o pipeline, siga os passos abaixo:
         python scripts/gold_ranking_falhas_por_uf.py
         python scripts/gold_longevidade_primeiro_pix.py
         ```
-    * **(Opcional) Rodar o Dashboard:**
+ 5. **(Opcional) Rodar o Dashboard:**
         Para visualizar os principais KPIs e análises do projeto, execute:
         ```bash
         streamlit run scripts/dashboard.py
