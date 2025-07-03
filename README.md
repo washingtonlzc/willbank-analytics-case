@@ -239,19 +239,37 @@ streamlit run scripts/dashboard.py
 -----
 
 
-### Principais Métricas e KPIs
+### Principais Métricas e Insights Gerados
 
-A partir do pipeline estruturado até a camada Gold, foram extraídas as seguintes métricas e análises, proporcionando uma visão abrangente do negócio e subsidiando a tomada de decisão:
+A partir do pipeline estruturado até a camada Gold, foram extraídas as seguintes métricas e análises, proporcionando uma visão abrangente do negócio e subsidiando a tomada de decisão. Além disso, foram geradas propostas de valor e melhoria contínua:
 
-* 📈 **Taxa de Sucesso das Transações PIX**
-* ❌ **Taxa de Falha/Inconsistência PIX**
-* 🌎 **Distribuição de Clientes por UF**
-* 👵 **Distribuição Etária dos Clientes**
-* 🏆 **Ranking de UFs com Mais Erros**
-* ⏰ **Falhas por Dia**
-* 🚨 **Proposta de Alerta Automático** (quando taxa de sucesso cair abaixo de um limiar crítico)
-* 💰 **Valor Médio Mensal das Transações**
-* 🕵️ **Transações Suspeitas** (Outliers)
+* **KPIs de Desempenho e Qualidade do PIX:**
+    * 📈 **Taxa de Sucesso das Transações PIX:** Percentual e volume absoluto de transações bem-sucedidas.
+    * ❌ **Taxa de Falha/Inconsistência PIX:** Quantificação de transações que falharam no registro ou apresentaram inconsistências.
+    * 🕵️ **Transações Suspeitas (Outliers):** Identificação de anomalias com base em valores monetários.
+    * 💰 **Valor Médio Mensal das Transações PIX.**
+    * **Proposta de Alerta Automático:** Implementação de alertas para queda da taxa de sucesso abaixo de um limiar crítico (ex: 98%).
+
+* **Insights Demográficos e Geográficos:**
+    * 🌎 **Distribuição de Clientes por UF:** Visualização da base de clientes por estado.
+    * 👵 **Distribuição Etária dos Clientes:** Estatísticas descritivas (média, mediana, quartis) da idade dos clientes.
+    * 🏆 **Ranking de UFs com Mais Erros:** Identificação dos estados com maior taxa de falhas em transações PIX.
+    * **Longevidade até o Primeiro PIX:** Tempo médio entre abertura da conta e primeira transação PIX, com análise de engajamento inicial.
+
+* **Análises Comportamentais e Temporais:**
+    * **Volume de Transações PIX por Tipo de Chave:** Análise da distribuição por CPF, e-mail, celular e aleatória.
+    * ⏰ **Falhas por Dia/Hora:** Estudo do padrão de falhas ao longo do tempo (por dia da semana e hora do dia) para identificar gargalos.
+
+* **Visualização e Consumo:**
+    * **Dashboards Interativos:** Desenvolvimento de protótipos de dashboards em Figma e Streamlit para acompanhamento contínuo dos KPIs pela área de negócio.
+    * **Enriquecimento Demográfico:** Cruzamento de dados transacionais com idade e estado (UF) para análises comportamentais detalhadas.
+
+*Detalhes completos de algumas métricas e análises estão disponíveis em:*
+`data/gold/gold_longevidade_primeiro_pix.csv`
+`data/gold/gold_longevidade_primeiro_pix_resumo.txt`
+`data/gold/gold_taxa_sucesso_pix_percentual.csv`
+`data/gold/gold_taxa_sucesso_pix_quantidade.csv`
+... (e adicione outros relevantes)
 
 
 ## Longevidade até o Primeiro PIX
@@ -292,27 +310,6 @@ Esses insights permitem à equipe técnica priorizar esforços e prever janelas 
 
 Antes do desenvolvimento completo do pipeline, foi realizada uma análise exploratória dos dados (EDA) para identificar padrões, avaliar a qualidade e levantar possíveis inconsistências.  
 O notebook completo da EDA, com gráficos e insights, pode ser consultado em [`scripts/eda_willbank.ipynb`](scripts/eda_willbank.ipynb).
-
-## KPIs e Propostas Estratégicas
-
-Além da construção do pipeline, foram geradas métricas e propostas de valor para o negócio.
-
-### Métricas Implementadas
-
-  * **Volume de Transações com Falha:** Quantificação das transações que falharam no registro.
-  * **Identificação de Transações Suspeitas:** Análise de outliers com base em valores monetários (ex: transações com valor muito acima da mediana do cliente ou do sistema).
-  * **Enriquecimento Demográfico:** Cruzamento de dados transacionais com idade e estado (UF) do cliente para análises comportamentais.
-
-### Propostas de Melhoria e Análise
-
-1.  **Taxa de Falha por Tipo de Transação:** Calcular a proporção de falhas para cada tipo de chave PIX (CPF, e-mail, celular, aleatória).
-2.  **Análise Geográfica e Demográfica:**
-      * Distribuição de clientes por estado (UF).
-      * Distribuição etária dos clientes (idade média, quartis, histograma).
-      * Ranking de UFs com maior taxa de erro em transações PIX.
-3.  **Análise Temporal:** Estudo do padrão de falhas ao longo do tempo (por dia da semana) para identificar possíveis gargalos em momentos de pico.
-4.  **Monitoramento e Alertas:** Proposta de implementação de um alerta automático (via Slack ou e-mail) caso a taxa de sucesso das transações PIX caia abaixo de um limiar crítico (ex: 98%).
-5.  **Visualização de Dados:** Simulação de um dashboard em Power BI ou Metabase para acompanhamento contínuo dos KPIs pela área de negócio (disponível em `deliverables/dashboard/`).
 
 -----
 
