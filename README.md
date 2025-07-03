@@ -34,7 +34,11 @@ O repositório está organizado de forma a garantir a rastreabilidade, manutenib
 ```bash
 willbank-analytics-case/
 │
-├── assets/will-bank.svg                            # Logo em svg do will para o (figma e dashboard)
+├── assets/
+│   │   ├── dashboard_streamlit.png
+│   │   ├── eda_jupyter.png
+│   │   ├── figma_dashboard.png    
+│   │   └── will-bank.svg                           # Logo em svg do will para o (figma e dashboard)
 ├── data/
 │   ├── raw/                                        # Dados originais fornecidos (core_account, core_pix, customer)
 │   │   ├── core_account.csv
@@ -68,9 +72,10 @@ willbank-analytics-case/
 │
 ├── deliverables/                                   # Resultados finais e artefatos para apresentação
 │   ├── dashboard/                                  # Imagens e links de dashboards
-│   │   ├── link_para_o_dashboard_online.md         # Links do prototipo de dashboard no Looker
+│   │   ├── link_para_o_dashboard_online.md         # Links do prototipo de dashboard no Looker Futuro
 │   │   └── figma_link.md                           # Links do prototipo de dashboard no Figma
-│   ├── docs/                                       # Documentos auxiliares e suporte
+│   ├── docs/   
+│   │   └── relatorio_analise_dados_willbank.pdf    # Documentos auxiliares relatorio_analise_dados_willbank
 │   └── output/                                     # Gráficos, relatórios e imagens exportadas
 │       ├── falhas_por_dia.png
 │       └── ranking_falhas_por_uf.png
@@ -323,6 +328,13 @@ Esses insights permitem à equipe técnica priorizar esforços e prever janelas 
 
 Antes do desenvolvimento completo do pipeline, foi realizada uma análise exploratória dos dados (EDA) para identificar padrões, avaliar a qualidade e levantar possíveis inconsistências.  
 O notebook completo da EDA, com gráficos e insights, pode ser consultado em [`scripts/eda_willbank.ipynb`](scripts/eda_willbank.ipynb).
+
+
+## Relatório de Análise
+
+O relatório completo em PDF da análise exploratória está disponível aqui:
+
+[Relatório PDF da Análise](deliverables/docs/relatorio_analise_dados_willbank.pdf)
 
 -----
 
